@@ -1,0 +1,26 @@
+/*tables:*/
+th, tr, td {
+  border: 1px solid black;
+}
+
+img {
+    border: 10px solid orange;
+    width: 500px;
+}
+
+.img-wrap {
+    display: grid;
+    place-items: center;
+}
+
+#cat-senses {
+    margin-left: 3rem;
+}
+
+#difference {
+    border:2px solid Tomato;
+    color:Tomato;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+}
