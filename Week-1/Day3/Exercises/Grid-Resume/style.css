@@ -1,0 +1,234 @@
+/* layout */
+
+.resume {
+    display: grid;
+    box-shadow           : 0 5px 9px 0 rgba(0, 0, 0, 0.35);
+    grid-gap             : 5px;
+    grid-template-rows   : 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+    "name photo"
+    "work about"
+    "work education"
+    "community skills";
+  } */
+
+/* for dividing columns */
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+      "name           name      photo   "
+      "about          work      work"
+      "education      work      work"
+      "skills   community    references  ";
+}
+
+.grid-area {
+    padding: 1em 1em 1em 1em;
+    border : 1px rgba(63, 62, 110, 0.396) solid;
+    box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.35);
+}
+
+.wrapper {
+    padding        : 0;
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-evenly;
+}
+
+.name {
+    grid-area : name;
+}
+
+.photo {
+    grid-area : photo;
+}
+
+.about {
+    grid-area : about;
+}
+
+.work {
+    grid-area : work;
+}
+
+.education {
+    grid-area : education;
+}
+
+.community {
+    grid-area : community;
+}
+
+.skills {
+    grid-area : skills;
+}
+
+.references {
+    grid-area : references;
+}
+
+
+
+
+/* filling */
+
+* {
+    font-family: 'Roboto Slab', serif;
+    background-color:#acd2ed80;
+    font-weight: 700;
+}
+
+.img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height:100%;
+}
+
+.img-wrap > img{
+    width: 30vh;
+    border: #ffa500 double 5px;
+    border-radius: 50%;
+
+}
+
+.stas-name {
+    text-align: center;
+}
+
+.stas-description {
+    text-align: center;
+
+}
+
+.stas-name > h1 {
+    font-size: 5rem;
+    margin-bottom: 0px;
+    background: linear-gradient(90deg, rgba(255,61,0,1) 0%, rgba(0,255,44,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stas-description > h1 {
+    margin-top: 0px;
+    font-size: 3rem;
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+.hr {
+    background-color: #ffa500;
+    height: 5px;
+    border: solid orange 1px;
+    border-radius: 30%;
+}
+
+.list-img {
+    width: 30px;
+    color: orange;
+    filter: invert(100%); 
+    background-color: rgb(0,105,255);
+    padding: 5px;
+    border-radius: 5%;
+    margin-right: 1vh;
+    margin-bottom: 1vh;
+}
+
+li {
+    display: flex;
+    align-items:center;
+    justify-content: left;
+}
+
+.edu  {
+    margin-top: 50px;
+}
+
+.skil {
+    margin-bottom: 10px;
+
+}
+.list-word {
+    font-size: 20px;
+}
+
+ul > div {
+    font-style: oblique;
+}
+.uni {
+    font-size: 1.2rem; 
+    text-decoration: underline;
+}
+
+.section-description {
+    text-align: justify;
+}
+
+
+/* media-quieries */
+
+/* max-width: 600px don't work - idk why...  */
+@media (max-width: 600px) {
+    .resume {
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "photo"
+          "name"
+          "about"
+          "work"
+          "education"
+          "skills"
+          "community"
+          "references"
+        }
+  }
+
+@media (max-width: 800px) {
+    .resume {
+        grid-template-areas:
+          "name photo"
+          "work about"
+          "work about"
+          "education education"
+          "skills skills"
+          "community community"
+          "references references"
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .resume {
+    display: grid;
+    box-shadow           : 0 5px 9px 0 rgba(0, 0, 0, 0.35);
+    grid-gap             : 5px;
+    grid-template-rows   : 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "name photo"
+    "work about"
+    "education education"
+    "skills skills"
+    "community community"
+    "references references"
+}}
+
+
+
+@media print {
+    /* remove any screen only styles, for example link underline */
+}
+  
+@page {
+    padding: 0;
+    margin: 0cm;
+    size: A4 portrait;
+}
