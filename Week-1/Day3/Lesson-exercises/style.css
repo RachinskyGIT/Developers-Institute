@@ -1,0 +1,250 @@
+/*example 1*/
+.item1 {
+  grid-area: myArea;
+}
+
+.item2 {
+  grid-area: myArea2;
+}
+
+.item3 {
+  grid-area: myArea3;
+}
+
+.item4 {
+  grid-area: myArea4;
+}
+.grid-container {
+  display: grid;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+  grid-template-areas: 
+        ' myArea4 myArea4 .       .       '
+        ' .       .       myArea  myArea  ' 
+        ' .       .       myArea  myArea  ' 
+        ' myArea3 myArea3 myArea3 myArea3 ' 
+        ' myArea2 myArea2 myArea2 myArea2 '
+        ' .       .       .       .       ';
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+/*example 2*/
+
+.wrapper {
+    border: red 10px solid;
+    margin: 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 40px;
+    column-gap: 10px;
+    color:rgb(0, 0, 0);
+    font-size: 50px;
+}
+
+.box1 {
+    background-color: yellow;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 4;
+    grid-column-end: 4;
+    /* grid-area: 1/1/4/1; */
+}
+
+.box2 {
+    background-color: rgb(117, 117, 221);
+    grid-row-start: 1;
+    grid-column-start: 4;
+    grid-row-end: 2;
+    grid-column-end: 6;
+    /* grid-area: 2/2/8/2; */
+}
+
+.box3 {
+    background-color: rgb(0, 255, 106);
+    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-row-end: 7;
+    grid-column-end: 4;
+    /* grid-area: 2/2/8/2; */
+}
+
+.box4 {
+    background-color: rgb(255, 0, 140);
+    grid-row-start: 4;
+    grid-column-start: 6;
+    grid-row-end: 7;
+    grid-column-end: 8;
+    /* grid-area: 2/2/8/2; */
+}
+
+.box5 {
+    background-color: rgb(255, 99, 99);
+    grid-row-start: 1;
+    grid-column-start: 6;
+    grid-row-end: 3;
+    grid-column-end: 8;
+    /* grid-area: 2/2/8/2; */
+}
+
+/*example 3*/
+
+.grid-area {
+    display: grid;
+    margin: 10px 10px;
+    border: rgb(146, 205, 231) 10px solid;
+    grid-template-rows: repeat(6, 100px);
+    grid-template-columns: repeat(6, 100px);
+    font-size: 50px;
+    grid-gap: 20px;
+}
+
+.grid-1 {
+    /*-начало вертикаль/начало горизонталь/конец вертикаль/конец горизонталь-*/
+    grid-area: 2/3/4/7;   
+    background-color: rgb(25, 99, 99);
+}
+
+.grid-2 {
+    grid-area: 4/2/7/3;
+    background-color: rgb(0, 0, 99);
+    color: white;
+}
+
+.grid-3 {
+    grid-area: 2/1/2/2;
+    background-color: rgb(200, 100, 99);
+}
+
+.grid-4 {
+    grid-area: 5/5/6/6;
+    background-color: rgb(0, 150, 255);
+}
+
+.grid-5 {
+    grid-area: 1/1/1/1;
+    background-color: rgb(25, 200, 0);
+}
+
+.grid-6 {
+    background-color: orange;
+    grid-area: 6/6;
+}
+
+.grid-7 {
+    background-color: blueviolet;
+    grid-row:    4;
+    grid-column: 5;
+}
+
+.grid-8 {
+    background-color: rgb(150, 255, 255);
+    grid-row:    4;
+}
+
+.grid-9 {
+    background-color: rgb(25, 99, 255);
+    grid-row:    2 / span 1;
+    grid-column: 9/ span 9;
+}
+
+.grid-10 {
+    background-color: yellow;
+    grid-row:    1 / span 1;
+    grid-column: 6/ span 1;
+}
+
+
+/*example 4*/
+
+.cell-area > .cell-1 { grid-area: a; background-color: red; }
+.cell-2 { grid-area: b; }
+.cell-3 { grid-area: c; }
+.cell-4 { grid-area: d; }
+.cell-5 { grid-area: e; }
+.cell-6 { grid-area: f; }
+.cell-7 { grid-area: g; }
+.cell-8 { grid-area: h; }
+.cell-9 { grid-area: i; }
+
+.cell-area{
+  display: grid;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+  margin: 10px 10px;
+  border: rgb(146, 205, 231) 10px solid;
+  grid-template-areas:
+    'a a a ' 
+    'd e f'
+    'd h i'
+    'c b b'
+    'g b b';
+}
+
+.cell-area > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+
+
+
+
+/* .cell-1 {
+    grid-area: 2/3/4/7;   
+    background-color: rgb(25, 99, 99);
+}
+
+.cell-2 {
+    grid-area: 4/2/7/3;
+    background-color: rgb(0, 0, 99);
+    color: white;
+}
+
+.cell-3 {
+    grid-area: 2/1/2/2;
+    background-color: rgb(200, 100, 99);
+}
+
+.cell-4 {
+    grid-area: 5/5/6/6;
+    background-color: rgb(0, 150, 255);
+}
+
+.cell-5 {
+    grid-area: 1/1/1/1;
+    background-color: rgb(25, 200, 0);
+}
+
+.cell-6 {
+    background-color: orange;
+    grid-area: 6/6;
+}
+
+.cell-7 {
+    background-color: blueviolet;
+    grid-row:    4;
+    grid-column: 5;
+}
+
+.cell-8 {
+    background-color: rgb(150, 255, 255);
+    grid-row:    4;
+}
+
+.cell-9 {
+    background-color: rgb(25, 99, 255);
+    grid-row:    2 / span 1;
+    grid-column: 9/ span 9;
+} */
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container {
+  display: flex;
+  background-color: #f1f1f1 ;
+  width: 100%;
+  flex-direction:column;
+  align-items:center;
+    gap: 20px;
+}
+
+.p {
+    display: flex;
+    justify-content: center;
+    background-color: DodgerBlue;
+    align-items: center;
+    font-size: 30px;
+}
+
+.box:nth-child(2n+1) {
+    width: 100%;
+    height: 5rem;
+}
+
+.box:nth-child(2n) {
+    width: 50%;
+    height: 10rem;
+}
+
+
+</style>
+</head>
+<body>
+<h1>Flexible Boxes</h1>
+
+<div class="flex-container">
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>  
+</div>
+
+</body>
+</html>
