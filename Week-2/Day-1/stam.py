@@ -1,3 +1,7 @@
+#I didn't do all the first exercises because they are too easy for me.
+#So don't judge please :)
+#But I did all the additional tasks, such as gold and ninja
+
 # exc8
 
 print("insert your number ")
