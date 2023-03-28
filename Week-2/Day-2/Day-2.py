@@ -178,3 +178,55 @@ print ("\n")
 # ex11
 
 # No need
+
+
+#Daily Challenge GOLD : Happy Birthday
+from datetime import date
+
+print("\nWhat is your birthday date? (DD/MM/YYYY)")
+inp = input("My birthday date is: ")
+if  (inp[1]=="/"):
+    inp="0"+inp
+if  (inp[4]=="/"):
+    inp=inp[:3]+"0"+inp[3:]
+
+try:
+    dd = int(inp[0:2])
+    mm = int(inp[3:5])
+    yyyy = int(inp[6:10])
+    dob = date(yyyy,mm,dd)
+    today = date.today()
+    age = today.year - dob.year -((today.month, today.day) <
+            (dob.month, dob.day))
+    n_cake=age%10
+    p_cake=int((11-n_cake)/2)
+
+    topcake = "        " +"_"*n_cake +"i"*n_cake + "_"*p_cake
+    if (n_cake%2)==0:
+        topcake = "        " +"_"*p_cake +"i"*n_cake + "_"*(p_cake+1)
+    if n_cake==0:
+        topcake = "        iiiiiiiiiii" #If a person has an age with 0 at the end, then he is entitled to 0 candles,
+                                    #but this is too sad (I don’t write sad code), so for such cases 
+                                    #I put a cake full of candles.
+    cake = ("\n\
+       |:H:a:p:p:y:|\n\
+     __|___________|__\n\
+    |^^^^^^^^^^^^^^^^^|\n\
+    |:B:i:r:t:h:d:a:y:|\n\
+    |                 |\n\
+    ~~~~~~~~~~~~~~~~~~~\n"
+    )
+
+    if ((dd==29) and (mm==2)):
+         print("\nWow, you are special! Two cakes for you!")
+         print("\n" + topcake+cake+"\n" + topcake+cake)
+    else:
+        print("\n" + topcake+cake)
+
+except ValueError:
+    print ("You entered wrong date")
+
+
+
+
+
