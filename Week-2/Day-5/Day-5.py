@@ -13,8 +13,6 @@ line7  = "    |7    |8    |9    |7\n"
 line8p = "    |     |     |     |8\n"
 line9  = "    |_____|_____|_____|9\n"
 
-
-
 line2p = list(line2p)
 
 
@@ -61,6 +59,41 @@ print(type(line2p))
 #     line8p[7] =
 #     line8p[13]= 
 #     line8p[19]=
+
+
+
+
+
+
+
+
+
+
+
+# if choice in range(1,4):
+#     line_selector = choice-1
+#     sublist=fieldlist[0] #line2p   # 7 / 13 / 19 - indexes of dots
+#     sublist[line_selector] = True
+#     fieldlist[0] = sublist
+#     fielddict[choice-1]=True
+
+# elif choice in range(4,7):
+#     line_selector = choice-4
+#     sublist=fieldlist[1] #line5p
+#     sublist[line_selector] = True
+#     fieldlist[1] = sublist
+#     fielddict[choice-1]=True
+
+# elif choice in range(7,10):
+#     line_selector = choice-7
+#     sublist=fieldlist[2] #line8p
+#     sublist[line_selector] = True
+#     fieldlist[2] = sublist
+#     fielddict[choice-1]=True
+
+# print(fielddict)
+
+
 
 
 
