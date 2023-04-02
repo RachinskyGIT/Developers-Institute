@@ -55,7 +55,7 @@ def comp_game(turn,gamedict,comp):
                                 ,list(fielddict.items())[4][1],list(fielddict.items())[5][1]\
                                     ,list(fielddict.items())[6][1],list(fielddict.items())[7][1]\
                                         ,list(fielddict.items())[8][1]]
-    
+    print(list(fielddict.items()))
     #The Grid
     line = f'\n\n\n\
     \u269E \u2655 \u2655  \u2655 \u2654 \u2655 \u2655 \u2655 \u269F\n\
