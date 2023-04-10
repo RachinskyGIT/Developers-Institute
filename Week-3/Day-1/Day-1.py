@@ -120,7 +120,7 @@ class Farm:
         self.name = name
         self.animals = {"Bear":1,'Cat':1, 'Cougar':1}
 
-    def add_animal(self, animal, *args):
+    def add_animal(self, animal, *args):  #you can do it too: def add_animal(self, animal, *args):
         if args:
             amount = args[0]
         else:
@@ -132,7 +132,7 @@ class Farm:
 
     def get_info(self):
         a = "\n".join(list(map(lambda x,y: str(x)+" : "+str(y), self.animals, self.animals.values())))
-        return(f"McDonald's farm\n\n{a}\n\n\tE-I-E-I-0!")
+        return(f"{self.name}'s farm\n\n{a}\n\n\tE-I-E-I-0!")
 
 
 macdonald = Farm("McDonald")
