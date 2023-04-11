@@ -96,7 +96,6 @@ print (deng)
 # ex1
 from func import funcc as func_add
 func_add(1,6)
-func.funcc(1,1)
 
 # ex2
 import func
