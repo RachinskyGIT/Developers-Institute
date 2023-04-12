@@ -1,3 +1,84 @@
+
+# Exercises XP+
+
+# ex1
+class Family:
+    def __init__(self, members, surname):
+        self.members = members
+        self.surname = surname
+
+    def new(self, newmember):
+        nm = {}
+        nm["name"] = newmember[0]
+        nm["age"] = newmember[1]
+        nm["gender"] = newmember[2]
+        if nm["age"]<18: nm["is_child"] = True 
+        else:            nm["is_child"] = False
+        self.members.append(nm)
+        return nm
+
+    def __repr__(self):
+        from copy import deepcopy
+        rep=""
+        a = deepcopy(self.members)
+        for j in a:
+            j['name']+=f" {self.surname}"
+            rep+=("\n" + "\n".join("{!r}: {!r}".format(k, v) for k, v in j.items()) + "\n") 
+        return ''.join(l for l in rep if l!="'")
+    
+    def family_presentation(self):
+        guys = lambda people: ', '.join([person['name'] for person in people[:-1]]) + f" and {people[-1]['name']}"
+        print(f"Here they are from left to right: {guys(self.members)} {self.surname}s")
+    
+
+fam = Family([{'name':'Michael','age':35,'gender':'Male','is_child':False},
+    {'name':'Sarah','age':32,'gender':'Female','is_child':False}], "Johnson")
+
+
+fam.new(["Pasha", 12, "not_decided_yet"])
+print(fam)
+print (fam.family_presentation())
+
+
+# ex2
+
+class TheIncredibles(Family):
+    def __init__(self, members, surname):
+        super().__init__(members, surname)
+
+    def new(self, newmember):
+        new_member = super().new(newmember)
+        new_member["power"] = newmember[3]
+        new_member["incredible_name"] = newmember[4]
+        return new_member
+
+    def use_power(self, manname):
+        man = (lambda name: next((person for person in self.members if person['name'] == name), None))
+        if man(manname)['age']>=18:
+            person = f"{man(manname)['name']} have superpower: to {man(manname)['power']}"
+            print(person)
+        else: raise Exception ("This guy is too young for these things")
+
+    def incredible_presentation(self):
+        super().family_presentation()
+
+
+
+superfam = TheIncredibles([
+    {'name':'Cock','age':55,'gender':'Male','is_child':False,'power': 'fly','incredible_name':'MikeFly'},
+    {'name':'Chook','age':32,'gender':'Female','is_child':False,'power': 'read minds','incredible_name':'SuperWoman'}], "Dunder")
+
+superfam.new(["Pasha", 12, "not_decided_yet", "Sleep", "LazyPasha"])
+print(superfam)
+superfam.incredible_presentation()
+
+
+
+
+
+########## Not related to homework ############
+
+
 # class Animal:
 #     def __init__(self, name: str):
 #         self.name = name
@@ -57,76 +138,3 @@
 # iphone_block(password=1)
 
 
-
-# Exercises XP+
-
-# ex1
-class Family:
-    def __init__(self, members, surname):
-        self.members = members
-        self.surname = surname
-
-    def new(self, newmember):
-        nm = {}
-        nm["name"] = newmember[0]
-        nm["age"] = newmember[1]
-        nm["gender"] = newmember[2]
-        if nm["age"]<18: nm["is_child"] = True 
-        else:            nm["is_child"] = False
-        self.members.append(nm)
-        return nm
-
-    def __repr__(self):
-        from copy import deepcopy
-        rep=""
-        a = deepcopy(self.members)
-        for j in a:
-            j['name']+=f" {self.surname}"
-            rep+=("\n" + "\n".join("{!r}: {!r}".format(k, v) for k, v in j.items()) + "\n") 
-        return ''.join(l for l in rep if l!="'")
-    
-    def family_presentation(self):
-        guys = lambda people: ', '.join([person['name'] for person in people[:-1]]) + f" and {people[-1]['name']}"
-        print(f"Here they are from left to right: {guys(self.members)} {self.surname}s")
-    
-
-fam = Family([{'name':'Michael','age':35,'gender':'Male','is_child':False},
-    {'name':'Sarah','age':32,'gender':'Female','is_child':False}], "Johnson")
-
-
-fam.new(["Pasha", 12, "not_decided_yet"])
-# print(fam)
-# print (fam.family_presentation())
-
-
-# ex2
-
-class TheIncredibles(Family):
-    def __init__(self, members, surname):
-        super().__init__(members, surname)
-
-    def new(self, newmember):
-        new_member = super().new(newmember)
-        new_member["power"] = newmember[3]
-        new_member["incredible_name"] = newmember[4]
-        return new_member
-
-    def use_power(self, manname):
-        man = (lambda name: next((person for person in self.members if person['name'] == name), None))
-        if man(manname)['age']>=18:
-            person = f"{man(manname)['name']} have superpower: to {man(manname)['power']}"
-            print(person)
-        else: raise Exception ("This guy is too young for these things")
-
-    def incredible_presentation(self):
-        super().family_presentation()
-
-
-
-superfam = TheIncredibles([
-    {'name':'Cock','age':55,'gender':'Male','is_child':False,'power': 'fly','incredible_name':'MikeFly'},
-    {'name':'Chook','age':32,'gender':'Female','is_child':False,'power': 'read minds','incredible_name':'SuperWoman'}], "Dunder")
-
-superfam.new(["Pasha", 12, "not_decided_yet", "Sleep", "LazyPasha"])
-print(superfam)
-superfam.incredible_presentation()
