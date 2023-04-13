@@ -49,3 +49,54 @@ if __name__ == '__main__':
 
     with open("sampleJson.json", "w") as f:
         json.dump(data, f)
+
+
+
+
+
+# ex2 - GOLD
+
+if __name__ == '__main__':
+    import requests
+    import json
+
+    search_query = "lol"
+    rating = "g"
+    api_key = "hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My"
+
+    url = f"https://api.giphy.com/v1/gifs/search?q={search_query}&rating={rating}&api_key={api_key}"
+
+    response = requests.get(url)
+
+    # If the status code is 200, proceed with parsing the JSON object
+    if response.status_code == 200:
+        # Check that response content is not empty
+        if response.content:
+            # Parse the JSON object
+            data = response.json()
+        else:
+            print("Response content is empty")
+        # Initialize a list to hold the relevant gifs
+        relevant_gifs = []
+
+        # Loop through the gifs in the JSON object
+        for gif in data["data"]:
+            # Check if the gif has a height bigger than 100
+            if int(gif["images"]["original"]["height"]) > 100:
+                # Append the relevant gif to the list
+                relevant_gifs.append(gif)
+                
+                # Check if we've found 10 relevant gifs already
+                if len(relevant_gifs) == 10:
+                    # If we have, break out of the loop
+                    break
+        
+        # Print the length of the list of relevant gifs
+        print(f'The length of the list of relevant gifs is: {len(relevant_gifs)}')
+        
+        # Print the URLs of the relevant gifs
+        for gif in relevant_gifs:
+            print(gif["images"]["original"]["url"])
+    else:
+        # If the status code is not 200, print an error message
+        print("Error:", response.status_code)
