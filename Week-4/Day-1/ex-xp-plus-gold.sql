@@ -29,3 +29,25 @@ WHERE first_name LIKE '%a%' AND
 SELECT * FROM students
 WHERE birth_date >= '2000-01-01'
 
+
+SELECT * 
+FROM students 
+ORDER BY last_name 
+LIMIT 4;
+
+SELECT * 
+FROM students 
+ORDER BY birth_date DESC 
+LIMIT 1;
+
+
+SELECT *
+FROM students
+LIMIT 3 OFFSET 2;
+
+
+
+
+
+
+
