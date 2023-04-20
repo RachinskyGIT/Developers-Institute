@@ -7,11 +7,9 @@ import psycopg2
 HOSTNAME = 'localhost'
 USERNAME = 'postgres'
 PASSWORD = '111111'
-DATABASE = 'dvdrental'
-
+DATABASE = 'new'
 
 connection = psycopg2.connect(host = HOSTNAME, user = USERNAME, password = PASSWORD, dbname = DATABASE)
-
 
 def select(table_name: str, *args) -> str:
     if args:
@@ -22,7 +20,6 @@ def select(table_name: str, *args) -> str:
     return query 
 
 def insert_query(table, *args, **kwargs) -> str:
-
     """
     Inserts data into a table.
 
@@ -44,17 +41,16 @@ def insert_query(table, *args, **kwargs) -> str:
     Returns:
         str: SQL insert query string.
     """
-
     columns = ','.join(args)
-
     # Функция в "values = ..." проверяет, является ли переданное значение датой с помощью isinstance(x, datetime.date), 
     # и если это так, то оно преобразуется в строку с использованием strftime('%Y-%m-%d'). 
     # В противном случае значение просто добавляется в строку с помощью f"'{x}'".
-    values = ','.join(map(lambda x: date(x).strftime('%Y-%m-%d') if isinstance(x, date) else f"'{x}'", kwargs.values()))
+    values = ','.join(map(lambda x: f"'{x.strftime('%Y-%m-%d')}'" if isinstance(x, date) else f"'{x}'", kwargs.values()))
     return f'insert into {table} ({columns}) values ({values})'
 
-# print(insert_query("table", "c1", "c2", v1="v1", v2="v2", v3='v3'))
-print(insert_query.__doc__)
+
+def delete_query(table, condition) -> str:
+    return f'DELETE FROM {table} WHERE {condition}'
 
 
 def run_select_query(query: str):
@@ -65,16 +61,25 @@ def run_select_query(query: str):
         result = cursor.fetchall()
     return result
 
+
 def run_change_query(query: str): 
-    
     with connection.cursor() as cursor:
         cursor.execute(query)
         connection.commit()
 
 
-newactor = insert_query('actor', 'first_name', 'last_name', 'birthday', 'number_oscars', fn='Brad', ln='Pitt', bd='date(1970,1,1)', no='2')
+# newactor = insert_query('actors', 'actor_id', 'first_name', 'last_name', 'age', 'number_oscars', id='1001', fn='Cheburek', ln='Kek', bd=date(1962,6,6), no='10')
 # run_change_query(newactor)
-print((newactor))
-# print(run_select_query(select("actor", "first_name")))
+# # print((newactor))
+# print(run_select_query(select("actors", "first_name")))
+
+
+# del_Brad_Pitt = delete_query('actors', "actor_id=5 and last_name='Cat'")
+# run_change_query(del_Brad_Pitt)
+# print(del_Brad_Pitt)
+
+print(run_select_query(select("actors", "first_name")))
+
+# print(connection.cursor().fetchall.__doc__)
 
 
