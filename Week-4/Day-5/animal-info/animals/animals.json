@@ -1,0 +1,220 @@
+{
+    "animals": [
+        {
+            "id": 1,
+            "name": "Dog",
+            "legs": 4,
+            "weight": 5.67,
+            "height": 4.2,
+            "speed": 34,
+            "family": 2
+        },
+        {
+            "id": 2,
+            "name": "Domestic Cat",
+            "legs": 2,
+            "weight": 5.67,
+            "height": 4.2,
+            "speed": 34,
+            "family": 1
+        },
+        {
+            "id": 3,
+            "name": "Panther",
+            "legs": 2,
+            "weight": 5.67,
+            "height": 4.2,
+            "speed": 34,
+            "family": 1
+        },
+        {
+            "id": 5,
+            "name": "Katie Haas DDS",
+            "legs": 6,
+            "weight": 75.36,
+            "height": 3.44,
+            "speed": 20,
+            "family": 4
+        },
+        {
+            "id": 6,
+            "name": "Kelly Johnson",
+            "legs": 5,
+            "weight": 54.6,
+            "height": 0.29,
+            "speed": 3,
+            "family": 3
+        },
+        {
+            "id": 7,
+            "name": "Alison Parks",
+            "legs": 7,
+            "weight": 65.4,
+            "height": 0.41,
+            "speed": 90,
+            "family": 4
+        },
+        {
+            "id": 8,
+            "name": "Richard Potter",
+            "legs": 10,
+            "weight": 3.5,
+            "height": 8.5,
+            "speed": 58,
+            "family": 11
+        },
+        {
+            "id": 9,
+            "name": "Christina Vincent",
+            "legs": 6,
+            "weight": 70.63,
+            "height": 1.14,
+            "speed": 58,
+            "family": 8
+        },
+        {
+            "id": 9,
+            "name": "Christopher Knox",
+            "legs": 9,
+            "weight": 61.25,
+            "height": 7.53,
+            "speed": 47,
+            "family": 3
+        },
+        {
+            "id": 10,
+            "name": "Nancy French",
+            "legs": 4,
+            "weight": 38.97,
+            "height": 5.6,
+            "speed": 47,
+            "family": 7
+        },
+        {
+            "id": 11,
+            "name": "Matthew Terry",
+            "legs": 3,
+            "weight": 18.33,
+            "height": 0.82,
+            "speed": 58,
+            "family": 2
+        },
+        {
+            "id": 12,
+            "name": "Sarah Stewart",
+            "legs": 2,
+            "weight": 69.37,
+            "height": 0.48,
+            "speed": 52,
+            "family": 3
+        },
+        {
+            "id": 13,
+            "name": "Emily Johnson",
+            "legs": 9,
+            "weight": 86.68,
+            "height": 6.54,
+            "speed": 76,
+            "family": 11
+        },
+        {
+            "id": 14,
+            "name": "James Whitehead",
+            "legs": 7,
+            "weight": 98.9,
+            "height": 9.81,
+            "speed": 44,
+            "family": 9
+        },
+        {
+            "id": 15,
+            "name": "Joseph Woods",
+            "legs": 2,
+            "weight": 0.88,
+            "height": 7.84,
+            "speed": 7,
+            "family": 9
+        },
+        {
+            "id": 16,
+            "name": "Douglas Miller",
+            "legs": 5,
+            "weight": 49.72,
+            "height": 7.3,
+            "speed": 94,
+            "family": 11
+        },
+        {
+            "id": 17,
+            "name": "Michelle Myers",
+            "legs": 7,
+            "weight": 23.62,
+            "height": 0.13,
+            "speed": 77,
+            "family": 5
+        },
+        {
+            "id": 18,
+            "name": "Megan Farmer",
+            "legs": 1,
+            "weight": 12.2,
+            "height": 2.68,
+            "speed": 69,
+            "family": 9
+        }
+    ],
+    "families": [
+        {
+            "id": 1,
+            "name": "blevins"
+        },
+        {
+            "id": 2,
+            "name": "walker"
+        },
+        {
+            "id": 3,
+            "name": "munoz-diaz"
+        },
+        {
+            "id": 4,
+            "name": "escobar"
+        },
+        {
+            "id": 5,
+            "name": "cooper"
+        },
+        {
+            "id": 6,
+            "name": "bennett"
+        },
+        {
+            "id": 7,
+            "name": "nguyen"
+        },
+        {
+            "id": 8,
+            "name": "owens"
+        },
+        {
+            "id": 9,
+            "name": "blackburn"
+        },
+        {
+            "id": 10,
+            "name": "woods-hernandez"
+        },
+        {
+            "id": 11,
+            "name": "Felidae"
+        },
+        {
+            "id": 12,
+            "name": "Caninae"
+        },
+        {
+            "id": 13,
+            "name": "Scary Aliens"
+        }
+    ]
+}
