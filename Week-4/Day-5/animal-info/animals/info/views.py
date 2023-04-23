@@ -1,16 +1,42 @@
 from django.shortcuts import render
+import json
+from .models import Animal, Family
+# import utils
 
-from django.views.generic import ListView, DetailView
-from .models import Family, Animal
+# Create your views here.
+def read_data(location: str, key: str):
 
-class AnimalsInFamilyView(ListView):
-    model = Animal
-    template_name = 'animals_in_family.html'
-    context_object_name = 'animals'
+    with open(location, 'r') as file:
+        data = json.load(file)
 
-    def get_queryset(self):
-        return Animal.objects.filter(family_id=self.kwargs['pk'])
+    sub_data = data[key]
+    return sub_data
 
-class AnimalDetailView(DetailView):
-    model = Animal
-    template_name = 'animal_detail.html'
+def find_instance(data_list: list, id: int) -> dict:
+    for instance in data_list:
+        if instance['id'] == id:
+            return instance
+    return None
+
+def all_animals(request): 
+
+    animals = Animal.objects.all()
+
+    context = {'animals': animals}
+    return render(request, 'animals.html', context)
+
+def animal(request, id: int):
+    # animals = read_data('data.json', 'animals')
+    # isinstance = find_instance(animals, id)
+
+    # context = {'animal': isinstance}
+    # return render(request, 'animal.html', context)
+    animal = Animal.objects.get (id = id)
+    return render (request, 'animal.html',{'animal': animal})
+
+def speed(request): 
+
+    animals = Animal.objects.all()
+
+    context = {'animals': animals}
+    return render(request, 'speed.html', context)

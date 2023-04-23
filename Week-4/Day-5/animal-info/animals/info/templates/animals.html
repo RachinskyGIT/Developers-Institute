@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+</head>
+<body>
+    <style>
+        a {
+        text-decoration: none;
+        }
+        .frame {
+            max-width: 60px;
+            border: 5px solid rgb(153, 33, 33);
+        }
+    </style>
+    <a href="{%url 'animals_all'%}">All animals</a><a style="color:black"> | </a><a href="{%url 'animals_speed'%}">Animals speed</a><br><hr>
+
+    {%for animal in animals|dictsort:'id' %}
+        <br>
+            <a href="{%url 'animal_specific' animal.id%}">{{animal.id}} {{animal.name}}     &emsp;         
+                {% if animal.image %}
+                    <img class="frame" src="{{ animal.image }}" alt="" width="100%" height="100%">
+                {% endif %}
+            </a>
+        <br>
+    {%endfor %}
+    
+</body>

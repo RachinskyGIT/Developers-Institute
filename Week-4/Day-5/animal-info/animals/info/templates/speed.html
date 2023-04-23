@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+</head>
+<body>
+    <style>
+        .a {
+        text-decoration: none;
+        color: black;
+        }
+        .frame {
+            border: 5px solid rgb(186, 216, 49);
+        }
+    </style>
+    <a href="{%url 'animals_all'%}">All animals</a><br><hr>
+    <img class="frame" src="https://cdn11.bigcommerce.com/s-snboj/images/stencil/777x2048/uploaded_images/internet-speed-970x546.jpg?t=1516655441" alt="">
+    
+
+    {%for animal in animals|dictsort:'id' %}
+        <br>
+            <a class="a"> {{animal.id}} | {{animal.name}} | Speed: {{animal.speed}}    &emsp;         
+
+            </a>
+        <br>
+    {%endfor %}
+    
+</body>
