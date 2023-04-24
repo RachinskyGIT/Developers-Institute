@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .frame {
+            max-width: 600px;
+            border: 5px solid rgb(153, 33, 33);
+        }
+    </style>
+    <a>Homepage</a><br><hr>
+
+    {%for gif in gifs %}
+        <br>
+            <a>
+                {{ gif.url }}
+                <img class='frame' src="{{ gif.url }}" alt="" width="100%" height="100%">
+                
+            </a>
+        <br>
+    {%endfor %}
+
+
+</body>
+</html>
+
