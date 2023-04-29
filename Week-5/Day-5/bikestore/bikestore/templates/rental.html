@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentals list</title>
+</head>
+<body>
+    <style>
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+    </style>
+
+
+    <div style="text-align: center; background-color: #FFCDD2; padding: 0px;">
+        <a style="background-color: #FFCDD2; color: #333; font-size: larger;
+            font-weight: bolder;  display: inline-block;">Rentals</a><br>
+    </div>
+    <hr style="border: 2.5px solid #F44336; margin-block-start: 0em;">
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>vehicle</th>
+            <th>Rental Date</th>
+            <th>Return Date</th>
+        </tr>
+        {% for rental in rentalsNone %}
+            <tr>
+                <td>{{ rental.id }}</td>
+                <td>{{ rental.customer_id }}</td>
+                <td>{{ rental.vehicle }}</td>
+                <td>{{ rental.rental_date }}</td>
+                <td>Not Returned Yet</td>
+            </tr>
+        {% endfor %}
+
+        {% for rental in rentals %}
+            <tr>
+                <td>{{ rental.id }}</td>
+                <td>{{ rental.customer_id }}</td>
+                <td>{{ rental.vehicle }}</td>
+                <td>{{ rental.rental_date }}</td>
+                <td>{{ rental.return_date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

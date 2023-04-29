@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+</head>
+<body >
+    <style>
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+    </style>
+    
+    <hr style="border: 2.5px solid #F44336; margin-block-start: 0em; margin-block-end: 0em;">
+    <div style="text-align: center; background-color: #FFCDD2; padding: 0px;">
+        <a style="background-color: #FFCDD2; color: #333; font-size: larger;
+            font-weight: bolder;  display: inline-block;">Customers</a><br>
+    </div>
+    <hr style="border: 2.5px solid #F44336; margin-block-start: 0em;">
+
+
+    <table>
+        <tr>
+            <th>Customer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Country</th>
+        </tr>
+        {% for customer in customers %}
+            <tr>
+                <td>{{ customer.id }}</td>
+                <td>{{ customer.first_name }}</td>
+                <td>{{ customer.last_name }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.phone_number }}</td>
+                <td>{{ customer.address }}</td>
+                <td>{{ customer.city }}</td>
+                <td>{{ customer.country }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

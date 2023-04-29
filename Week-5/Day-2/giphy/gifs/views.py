@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Gif, Category
+from .forms import GifForm, CategoryForm
+from django.http import HttpResponse
 
 
 def Homepage(request): 
@@ -9,47 +11,54 @@ def Homepage(request):
     context = {'gifs': gifs}
     return render(request, 'Homepage.html', context)
 
-# def search(model, value):
 
-#     result = None
-#     try:
-#         model_instance = model.objects.get(name = value)
-#         result = model_instance
-#     except model.DoesNotExist:
-#         pass
-#     try:
-#         model_instance = model.objects.get(phone_number = value)
-#         result = model_instance
-#     except model.DoesNotExist:
-#         pass
+def add_gif_view(request):
+    
+    if request.method == 'POST':
+        print("POST data: ", request.POST)
+        print('POSTING DATA')
+        gif_filled_form = GifForm(request.POST) # put the data from the request into the ModelForm
 
-#     return result
-
-
-# def search_person(request, search_value: str):
-
-#     context = {}
-
-#     person_info = search(Person,  search_value)
-
-#     if person_info is not None:
-#         context = {'person': person_info}
-
-#     return render(request, 'person_info.html', context)
+        if gif_filled_form.is_valid(): # check if all fields contain the correct data
+            # gif_filled_form.save().categories.add(Category.objects.get(name=gif_filled_form.cleaned_data['categories'])) # save data into database
+            gif = gif_filled_form.save(commit=False)
+            gif.save()
+            gif.categories.set(gif_filled_form.cleaned_data['categories'])
+            return HttpResponse("SUCCESSFULLY SAVED")
 
 
-# def profile_view(request, search_value: str):
+        else:
+            print(gif_filled_form.errors)
+            return HttpResponse(gif_filled_form.errors)
 
-#     context = {}
+    # GET mode - getting content out
+    if request.method == 'GET':
+        gif_form = GifForm()
+        print("GET data: ", request.GET) # data associated with the GET method
+        print("GETTING DATA OUT")
+        context = {'form': gif_form}
 
-#     person_info = search(Person,  search_value)
+    return render(request, 'add_gif.html', context)
 
-#     if person_info is not None:
-#         person_profile = person_info.profile
-        
-#         profile_languages = person_profile.languages.all().order_by('name')
 
-#         context = {'person_info': person_info, 'person_profile': person_profile, 'languages': profile_languages}
+def add_category_view(request):
+    
+    if request.method == 'POST':
+        print("POST data: ", request.POST)
+        print('POSTING DATA')
+        category_filled_form = CategoryForm(request.POST) # put the data from the request into the ModelForm
 
-#     return render(request, 'profile.html', context)
+        if category_filled_form.is_valid(): # check if all fields contain the correct data
+            category_filled_form.save() # save data into database
+            return HttpResponse("SUCCESSFULLY SAVED")
+
+
+    if request.method == 'GET':
+        category_form = CategoryForm()
+        print("GET data: ", request.GET) # data associated with the GET method
+        print("GETTING DATA OUT")
+        context = {'form': category_form}
+    
+
+    return render(request, 'add_category.html', context)
 

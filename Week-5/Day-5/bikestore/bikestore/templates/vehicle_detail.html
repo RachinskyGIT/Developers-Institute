@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Details</title>
+</head>
+<body>
+    <style>
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+    </style>
+
+<br><hr style="border: 2.5px solid #F44336; margin-block-start: 0em; margin-block-end: 0em;">
+<div style="text-align: center; background-color: #FFCDD2; padding: 0px;">
+    <a style="background-color: #FFCDD2; color: #333; font-size: larger;
+        font-weight: bolder;  display: inline-block;">Customer Details</a><br>
+</div>
+<hr style="border: 2.5px solid #F44336; margin-block-start: 0em;">
+
+<table>
+    <tr>
+        <td>Vehicle ID:</td>
+        <th>{{ vehicle.id }}</th>
+    </tr>
+    <tr>
+        <td>Vehicle Date Created:</td>
+        <th>{{ vehicle.date_created }}</th>
+    </tr>
+    <tr>
+        <td>Real Cost ($):</td>
+        <th>{{ vehicle.real_cost }}</th>
+    </tr>
+    <tr>
+        <td>Size:</td>
+        <th>{{vehicle.size }}</th>
+    </tr>
+    <tr>
+        <td>Vehicle Type:</td>
+        <th>{{ vehicle.vehicle_type }}</th>
+    </tr>
+
+
+    <tr>
+        <td>Is it rented? (if nothing - vehicle is available):</td>
+        <th>
+                {% for rental in rentals %}
+                    {% if rental.vehicle == vehicle and rental.return_date is None %}
+                        Vehicle currently rented
+                    {% endif %}
+                {% endfor %}
+        </th>
+    </tr>
+
+</table>
+
+</body>
+</html>

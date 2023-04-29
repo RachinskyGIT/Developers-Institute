@@ -1,5 +1,5 @@
 """
-URL configuration for giphy project.
+URL configuration for bikestore project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,12 +16,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from gifs.views import Homepage, add_gif_view, add_category_view
+from rent.views import All_rentals, Rental_detail, Customer_detail, All_customers, All_vehicles, Vehicle_detail
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("homepage/", Homepage),
-    path("add_gif/", add_gif_view),
-    path("add_category/", add_category_view),
+    path("rental/", All_rentals),
+    path("rental/<pk>", Rental_detail),
+    path("customer/<pk>", Customer_detail),
+    path("customer/", All_customers),
+    path("vehicle/", All_vehicles),
+    path("vehicle/<pk>", Vehicle_detail),
+
 ]
+
+# from django.contrib import admin
+# from django.urls import path
+# from gifs.views import Homepage, add_gif_view, add_category_view
+
+
+# urlpatterns = [
+#     path("admin/", admin.site.urls),
+#     path("rental/", All_rentals),
+#     path("add_gif/", add_gif_view),
+#     path("add_category/", add_category_view),
+# ]

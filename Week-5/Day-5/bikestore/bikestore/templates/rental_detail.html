@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Details</title>
+</head>
+<body>
+    <style>
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+    </style>
+<hr style="border: 2.5px solid #F44336; margin-block-start: 0em; margin-block-end: 0em;">
+<div style="text-align: center; background-color: #FFCDD2; padding: 0px;">
+    <a style="background-color: #FFCDD2; color: #333; font-size: larger;
+        font-weight: bolder;  display: inline-block;">Rental Details</a><br>
+</div>
+<hr style="border: 2.5px solid #F44336; margin-block-start: 0em;">
+
+<table>
+    <tr>
+        <td>Rental ID:</td>
+        <th>{{ rental.id }}</th>
+    </tr>
+    <tr>
+        <td>Rental Date:</td>
+        <th>{{ rental.rental_date }}</th>
+    </tr>
+    <tr>
+        <td>Return Date:</td>
+        <th>{{ rental.return_date }}</th>
+    </tr>
+</table>
+
+<br><hr style="border: 2.5px solid #F44336; margin-block-start: 0em; margin-block-end: 0em;">
+<div style="text-align: center; background-color: #FFCDD2; padding: 0px;">
+    <a style="background-color: #FFCDD2; color: #333; font-size: larger;
+        font-weight: bolder;  display: inline-block;">Customer Details</a><br>
+</div>
+<hr style="border: 2.5px solid #F44336; margin-block-start: 0em;">
+
+<table>
+    <tr>
+        <td>Customer ID:</td>
+        <th>{{ rental.customer_id.id }}</th>
+    </tr>
+    <tr>
+        <td>First Name:</td>
+        <th>{{ rental.customer_id.first_name }}</th>
+    </tr>
+    <tr>
+        <td>Last Name:</td>
+        <th>{{ rental.customer_id.last_name }}</th>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <th>{{ rental.customer_id.email }}</th>
+    </tr>
+    <tr>
+        <td>Phone Number:</td>
+        <th>{{ rental.customer_id.phone_number }}</th>
+    </tr>
+    <tr>
+        <td>Address:</td>
+        <th>{{ rental.customer_id.address }}</th>
+    </tr>
+    <tr>
+        <td>City:</td>
+        <th>{{ rental.customer_id.city }}</th>
+    </tr>
+    <tr>
+        <td>Country:</td>
+        <th>{{ rental.customer_id.country }}</th>
+    </tr>
+</table>
+
+<br><hr style="border: 2.5px solid #F44336; margin-block-start: 0em; margin-block-end: 0em;">
+<div style="text-align: center; background-color: #FFCDD2; padding: 0px;">
+    <a style="background-color: #FFCDD2; color: #333; font-size: larger;
+        font-weight: bolder;  display: inline-block;">Vehicle Details</a><br>
+</div>
+<hr style="border: 2.5px solid #F44336; margin-block-start: 0em;">
+
+<table>
+    <tr>
+        <td>Vehicle ID:</td>
+        <th>{{ rental.vehicle.id }}</th>
+    </tr>
+    <tr>
+        <td>Real Cost:</td>
+        <th>{{ rental.vehicle.real_cost }}</th>
+    </tr>
+    <tr>
+        <td>Vehicle Type:</td>
+        <th>{{ rental.vehicle.vehicle_type.name }}</th>
+    </tr>
+    <tr>
+        <td>Size:</td>
+        <th>{{ rental.vehicle.size.name }}</th>
+    </tr>
+</table>
+
+</body>
+</html>

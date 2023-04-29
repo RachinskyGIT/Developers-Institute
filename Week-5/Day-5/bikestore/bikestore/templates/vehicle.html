@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentals list</title>
+</head>
+<body>
+    <style>
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+    </style>
+
+    <hr style="border: 2.5px solid #F44336; margin-block-start: 0em; margin-block-end: 0em;">
+    <div style="text-align: center; background-color: #FFCDD2; padding: 0px;">
+        <a style="background-color: #FFCDD2; color: #333; font-size: larger;
+            font-weight: bolder;  display: inline-block;">Vehicles</a><br>
+    </div>
+    <hr style="border: 2.5px solid #F44336; margin-block-start: 0em;">
+
+    <table>
+        <tr>
+            <th>Vehicle ID</th>
+            <th>Vehicle Date Created</th>
+            <th>Real Cost ($)</th>
+            <th>Size</th>
+            <th>Vehicle Type</th>
+        </tr>
+        {% for vehicle in vehicles %}
+            <tr>
+                <td>{{ vehicle.id }}</td>
+                <td>{{ vehicle.date_created }}</td>
+                <td>{{ vehicle.real_cost }}</td>
+                <td>{{ vehicle.size}}</td>
+                <td>{{ vehicle.vehicle_type }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 """
-URL configuration for giphy project.
+URL configuration for phonebook project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,12 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from gifs.views import Homepage, add_gif_view, add_category_view
-
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("homepage/", Homepage),
-    path("add_gif/", add_gif_view),
-    path("add_category/", add_category_view),
 ]

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+</head>
+<body>
+    <style>
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+    </style>
+
+
+<hr style="border: 2.5px solid #F44336; margin-block-start: 0em; margin-block-end: 0em;">
+<div style="text-align: center; background-color: #FFCDD2; padding: 0px;">
+    <a style="background-color: #FFCDD2; color: #333; font-size: larger;
+        font-weight: bolder;  display: inline-block;">Customer Details</a><br>
+</div>
+<hr style="border: 2.5px solid #F44336; margin-block-start: 0em;">
+<table>
+    <tr>
+        <td>Customer ID:</td>
+        <th>{{customer.id }}</th>
+    </tr>
+    <tr>
+        <td>First Name:</td>
+        <th>{{customer.first_name }}</th>
+    </tr>
+    <tr>
+        <td>Last Name:</td>
+        <th>{{customer.last_name }}</th>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <th>{{customer.email }}</th>
+    </tr>
+    <tr>
+        <td>Phone Number:</td>
+        <th>{{customer.phone_number }}</th>
+    </tr>
+    <tr>
+        <td>Address:</td>
+        <th>{{customer.address }}</th>
+    </tr>
+    <tr>
+        <td>City:</td>
+        <th>{{customer.city }}</th>
+    </tr>
+    <tr>
+        <td>Country:</td>
+        <th>{{customer.country }}</th>
+    </tr>
+</table>
+
+</body>
+</html>
