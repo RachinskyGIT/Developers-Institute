@@ -6,7 +6,33 @@ from rest_framework.permissions import (IsAdminUser, IsAuthenticated, AllowAny)
 from rest_framework.status import (HTTP_200_OK, HTTP_201_CREATED, HTTP_202_ACCEPTED, HTTP_400_BAD_REQUEST)
 from .models import Student
 from .serializers import StudentSerializer
+from .mixins import StudentOperationsMixin
+from rest_framework.generics import GenericAPIView
 
+
+
+class StudentListMixin(StudentOperationsMixin, GenericAPIView):
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        date_joined = self.request.query_params.get('date_joined')
+        if date_joined:
+            print (date_joined)
+            queryset = queryset.order_by('date_joined')
+        return queryset
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)   
+
+
+class StudentDetailMixin(StudentOperationsMixin, GenericAPIView):
+    lookup_field = 'id'
+
+    def get(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = StudentSerializer(instance)
+        return Response(serializer.data)
+    
 
 class StudentView(APIView):
 
@@ -29,7 +55,7 @@ class StudentView(APIView):
         return Response(serializer.data, status=HTTP_200_OK)
 
 
-    def Post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
 
         serializer = StudentSerializer(data=request.data)
 

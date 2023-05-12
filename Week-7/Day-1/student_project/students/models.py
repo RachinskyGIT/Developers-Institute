@@ -11,4 +11,3 @@ class Student(models.Model):
        return f"{self.first_name} {self.last_name} ({self.email})"
    
 
-# Student(first_name = "Jack", last_name = "Daniels", email = gofuckyourself@notyourmatter.com).save()
