@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Department, Task, Project, Employee
-from .serializers import TaskSerializer, ProjectSerializer, EmployeetSerializer, DepartmentSerializer
+from .serializers import TaskSerializer, ProjectSerializer, EmployeeSerializer, DepartmentSerializer
 from .permissions import IsDepartmentAdmin
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
@@ -31,17 +31,27 @@ class DepartmentCreateAPIView(CreateAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
+class DepartmentRetrieveAPIView(RetrieveAPIView):
+    permission_classes = (IsDepartmentAdmin,)
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
+    lookup_field = 'id'
 
 class EmployeeListAPIView(ListAPIView):
     permission_classes = (IsDepartmentAdmin,)
     queryset = Employee.objects.all()
-    serializer_class = EmployeetSerializer
+    serializer_class = EmployeeSerializer
 
 class EmployeeCreateAPIView(CreateAPIView):
     permission_classes = (IsDepartmentAdmin,)
     queryset = Department.objects.all()
-    serializer_class = EmployeetSerializer
+    serializer_class = EmployeeSerializer
 
+class EmployeeRetrieveAPIView(RetrieveAPIView):
+    permission_classes = (IsDepartmentAdmin,)
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
+    lookup_field = 'id'
 
 class ProjectListAPIView(ListAPIView):
     permission_classes = (IsDepartmentAdmin,)

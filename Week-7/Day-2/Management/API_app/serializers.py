@@ -6,7 +6,10 @@ class DepartmentSerializer(serializers.ModelSerializer):
         model = Department
         fields = '__all__'
 
-class EmployeetSerializer(serializers.ModelSerializer):
+class EmployeeSerializer(serializers.ModelSerializer):
+
+    department = serializers.HyperlinkedIdentityField(view_name='department-link')
+
     class Meta:
         model = Employee
         fields = '__all__'
@@ -17,6 +20,10 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TaskSerializer(serializers.ModelSerializer):
+
+    project = serializers.HyperlinkedIdentityField(view_name='project-link')
+
     class Meta:
         model = Task
         fields = '__all__'
+
