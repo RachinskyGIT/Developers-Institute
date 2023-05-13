@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Department, Task, Project, Employee
 from .serializers import TaskSerializer, ProjectSerializer, EmployeetSerializer, DepartmentSerializer
+from .permissions import IsDepartmentAdmin
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import Group
@@ -21,68 +22,80 @@ from rest_framework.generics import (GenericAPIView, ListAPIView, RetrieveAPIVie
 
 
 class DepartmentListAPIView(ListAPIView):
-
+    permission_classes = [IsDepartmentAdmin]
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
 class DepartmentCreateAPIView(CreateAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
 
 class EmployeeListAPIView(ListAPIView):
-
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Employee.objects.all()
     serializer_class = EmployeetSerializer
 
 class EmployeeCreateAPIView(CreateAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Department.objects.all()
     serializer_class = EmployeetSerializer
 
 
 class ProjectListAPIView(ListAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
 class ProjectCreateAPIView(CreateAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
 class ProjectRetrieveAPIView(RetrieveAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     lookup_field = 'id'
 
 class ProjectUpdateAPIView(UpdateAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     lookup_field = 'id'
 
 class ProjectDestroyAPIView(DestroyAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     lookup_field = 'id'
 
 
 class TaskListAPIView(ListAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
 class TaskCreateAPIView(CreateAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
 class TaskRetrieveAPIView(RetrieveAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     lookup_field = 'id'
 
 class TaskUpdateAPIView(UpdateAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     lookup_field = 'id'
 
 class TaskDestroyAPIView(DestroyAPIView):
+    permission_classes = (IsDepartmentAdmin,)
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     lookup_field = 'id'
