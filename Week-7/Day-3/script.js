@@ -139,3 +139,34 @@ const societyName = names
   .join(""); // Convert the sorted letters back to a string
   
 console.log(societyName);
+
+
+// Daily Challenge #1
+
+sentence = "The movie is not bad, I like it";
+
+const wordNot = sentence.indexOf("not");
+const wordBad = sentence.indexOf("bad");
+if (wordNot == -1 || wordBad == -1) {
+  //do nothing
+} else if (wordNot < wordBad) {
+sentence = sentence.substring(0, wordNot) + 'good' + sentence.substring(wordBad + 3);
+}
+console.log(sentence);
+
+
+// Daily Challenge #2
+
+var dot = "*"
+for (var i = 1; i <= 6; i++) {
+  console.log(dot.repeat(i));
+}
+
+var pattern = '';
+for (var i = 1; i <= 6; i++) {
+  for (var j = 1; j <= i; j++) {
+    pattern += '*';
+  }
+  pattern += '\n';
+}
+console.log(pattern);
