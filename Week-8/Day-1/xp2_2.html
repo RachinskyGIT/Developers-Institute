@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- ---------------Dark mode----------------- -->
+    <style>
+        body {
+            background-color: #185C65;
+            color: #bdc9c6;
+        }
+        strong, b {
+            color: #dce6e2;
+        }
+        input[type="text"] {
+            background-color: #518E98;
+            color: #dddddd;
+            border-color: #494141;
+        }
+        input[type="submit"] {
+            background-color: #324B4F;
+            color: #dddddd;
+            border-color: #888888;
+        }
+    </style>
+    <!-- ----------------------------------------- -->
+    <style>
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        }
+        #animate {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background-color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <p><button onclick="myMove()">Click Me</button></p>
+    <div id="container">
+      <div id="animate"></div>
+    </div>
+
+    <script src="xp2_2.js"></script>
+</body>
+</html>
