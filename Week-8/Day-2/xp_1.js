@@ -1,27 +1,27 @@
-// // ex2
-// const winBattle = () => {
-//     return true;
-//     };
-// let experiencePoints;
-// winBattle() ? experiencePoints = 10 : experiencePoints = 1;
+// ex2
+const winBattle = () => {
+    return true;
+    };
+let experiencePoints;
+winBattle() ? experiencePoints = 10 : experiencePoints = 1;
 
-// console.log (experiencePoints)
+console.log (experiencePoints)
 
-// // ex3
-// const isString = (input) => {
-//     return (typeof input === 'string');
-//     };
+// ex3
+const isString = (input) => {
+    return (typeof input === 'string');
+    };
 
-// console.log (isString(3))    
+console.log (isString(3))    
 
-// // ex4 + ex5
-// const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
-// const ordinal = ["th","st","nd","rd"];
-// let suffix;
-// colors.forEach((element, idx) => { 
-//     idx === 0 ? suffix = ordinal[1] : idx === 1 ? suffix = ordinal[2] : idx === 2 ? suffix = ordinal[3] : suffix = ordinal[0];
-//     console.log(`#${idx+1}${suffix} is ${element}`)
-// }); 
+// ex4 + ex5
+const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const ordinal = ["th","st","nd","rd"];
+let suffix;
+colors.forEach((element, idx) => { 
+    idx === 0 ? suffix = ordinal[1] : idx === 1 ? suffix = ordinal[2] : idx === 2 ? suffix = ordinal[3] : suffix = ordinal[0];
+    console.log(`#${idx+1}${suffix} is ${element}`)
+}); 
 
 
 // ex6
