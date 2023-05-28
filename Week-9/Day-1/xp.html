@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTTP Form</title>
+      <!-- ---------------Dark mode----------------- -->
+      <style>
+        body {
+            background-color: #185C65;
+            color: #bdc9c6;
+        }
+        strong, b {
+            color: #dce6e2;
+        }
+        input[type="text"] {
+            background-color: #518E98;
+            color: #dddddd;
+            border-color: #494141;
+        }
+        input[type="submit"] {
+            background-color: #324B4F;
+            color: #dddddd;
+            border-color: #888888;
+        }
+    </style>
+    <!-- ----------------------------------------- -->
+</head>
+<body>
+  <form action="" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea><br>
+
+    <input type="submit" value="Send">
+  </form>
+
+  <script src="xp.js"></script>
+
+</body>
+</html>
