@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form</title>
+      <!-- ---------------Dark mode----------------- -->
+      <style>
+        body {
+            background-color: #185C65;
+            color: #bdc9c6;
+        }
+        strong, b {
+            color: #dce6e2;
+        }
+        input[type="text"] {
+            background-color: #518E98;
+            color: #dddddd;
+            border-color: #494141;
+        }
+        input[type="submit"] {
+            background-color: #324B4F;
+            color: #dddddd;
+            border-color: #888888;
+        }
+    </style>
+    <!-- ----------------------------------------- -->
+</head>
+<body>
+  <form id="myForm" action="" method="post">
+    <input type="text" id="name" name="name" placeholder="first name" required>
+    <input type="text" id="surname" name="surname" placeholder="last name" required>
+    <input type="submit" value="Send">
+  </form>
+
+  </form>
+  <div id="output"></div>
+
+  <script src="daily.js"></script>
+
+</body>
+</html>
