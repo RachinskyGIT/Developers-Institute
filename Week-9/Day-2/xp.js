@@ -25,18 +25,35 @@ const comparing = new Promise((resolve, reject) => {
 // compareToTen(11)
 
 
-// ex2
-const myPromise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("success");
-    }, 4000);
-  });
+// // ex2
+// const myPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("success");
+//     }, 4000);
+//   });
   
-  myPromise
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((error) => {
-      console.log('Ooops something went wrong');
-    });
-  
+//   myPromise
+//     .then((result) => {
+//       console.log(result);
+//     })
+//     .catch((error) => {
+//       console.log('Ooops something went wrong');
+//     });
+
+    
+// ex3
+const promise1 = Promise.resolve(3);
+
+const promise2 = Promise.reject("Boo!");
+
+promise1.then(value => {
+  console.log("Resolved:", value);
+}).catch(error => {
+  console.error("Error:", error);
+});
+
+promise2.then(value => {
+  console.log("Resolved:", value);
+}).catch(error => {
+  console.error("Error:", error);
+});
