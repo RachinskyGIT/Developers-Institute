@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #d1c9c9;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+<!-- ---------------Dark mode----------------- -->
+<style>
+    body {
+        background-color: #185C65;
+        color: #bdc9c6;
+    }
+    strong, b {
+        color: #dce6e2;
+    }
+    input[type="text"] {
+        background-color: #518E98;
+        color: #dddddd;
+        border-color: #494141;
+    }
+    input[type="submit"] {
+        background-color: #324B4F;
+        color: #dddddd;
+        border-color: #888888;
+    }
+    input {
+        background-color: #324B4F;
+        color: #dddddd;
+        border-color: #888888;
+    }
+    textarea {        
+        background-color: #324B4F;
+        color: #dddddd;
+        border-color: #888888;}
+</style>
+<!-- ----------------------------------------- -->
+</head>
+<body>
+  <h1>Contact Form</h1>
+  <form action="/formData" method="POST">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
