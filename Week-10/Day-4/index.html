@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login & Register</title>
+<!-- ---------------Dark mode----------------- -->
+<style>
+    body {
+        background-color: #185C65;
+        color: #bdc9c6;
+    }
+    strong, b {
+        color: #dce6e2;
+    }
+    input[type="text"] {
+        background-color: #518E98;
+        color: #dddddd;
+        border-color: #494141;
+    }
+    input[type="submit"] {
+        background-color: #324B4F;
+        color: #dddddd;
+        border-color: #888888;
+    }
+    input {
+        background-color: #324B4F;
+        color: #dddddd;
+        border-color: #888888;
+    }
+    textarea {        
+        background-color: #324B4F;
+        color: #dddddd;
+        border-color: #888888;}
+</style>
+<!-- ----------------------------------------- -->
+</head>
+<body>
+  <h1>Register</h1>
+  <form action="/register" method="POST">
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" name="first-name" required><br>
+    
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" name="last-name" required><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+    
+    <input type="submit" value="Register">
+  </form>
+
+  <h1>Login</h1>
+  <form action="/login" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+    
+    <input type="submit" value="Login">
+  </form>
+</body>
+</html>
