@@ -4,7 +4,7 @@
 //     constructor() {
 //         super();
 //         this.state = {
-//             hasError: false;
+//             hasError: false,
 //             error:null,
 //             errorInfo: null,
 //         }
