@@ -1,41 +1,37 @@
-import React from 'react';
-import ErrorBoundary from './Components/ErrorBoundary';
-import Counter from './Components/Counter';
+// xp_3
 
-function App() {
-  return (
-    <div>
-      <p>
-        <b>
-          Click on the numbers to increase the counters.<br />
-          The counter is programmed to throw an error when it reaches 5. This simulates a JavaScript error in a component.
-        </b>
-      </p>
-      <hr />
-      <ErrorBoundary>
-        <p>
-          These two counters are inside the same error boundary. If one crashes, the error boundary will replace both of them.
-        </p>
-        <Counter />
-        <Counter />
-      </ErrorBoundary>
-      <hr />
-      <p>
-        These two counters are each inside of their own error boundary. So if one crashes, the other is not affected.
-      </p>
-      <ErrorBoundary>
-        <Counter />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <Counter />
-      </ErrorBoundary>
-      <hr />
-      <p>
-        This counter is not inside of a boundary. So if it crashes, all other components are deleted.
-      </p>
-      <Counter />
-    </div>
-  );
+import React from 'react';
+
+class Child extends React.Component {
+  componentWillUnmount() {
+    alert('Child component is about to be unmounted!');
+  }
+
+  render() {
+    return <h1>Hello World!</h1>;
+  }
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: true,
+    };
+  }
+
+  handleDelete = () => {
+    this.setState({ show: false });
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.show && <Child />}
+        <button onClick={this.handleDelete}>Delete header</button>
+      </div>
+    );
+  }
 }
 
 export default App;
