@@ -1,8 +1,6 @@
-// daily challenge
-
 import React from 'react';
-import AppForm from './Components/AppForm';
-import './Components/eyepopping.css';
+import AppForm from './AppForm';
+import './eyepopping.css';
 
 function App() {
   return (

@@ -1,0 +1,136 @@
+body {
+    background-color: #222;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    margin-bottom: 30px;
+  }
+  
+  input[type='text'],
+  input[type='number'],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  input[type='checkbox'] {
+    margin-right: 5px;
+  }
+  
+  .input-wrapper {
+    width: 300px; /* Adjust the width as desired */
+    margin-bottom: 10px; /* Add some spacing between input fields */
+  }
+  
+
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .result {
+    padding: 20px;
+    background-color: #333;
+    border-radius: 4px;
+  }
+  
+  .result h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .result p {
+    margin-bottom: 5px;
+  }
+  
+  .result span {
+    font-weight: bold;
+  }
+
+
+
+  /* First Section */
+#form-section {
+    background-color: #f1f1f1; /* Light gray background */
+    padding: 20px;
+  }
+  
+  /* Second Section */
+  #info-section {
+    background-color: #534821; /* Lighter gray background */
+    padding: 20px;
+    margin-top: 20px; /* Add some spacing between sections */
+    border-top: 2px solid #ccc; /* Add a border at the top to separate sections */
+    line-height: 1.5; /* Add spacing between lines of text */
+    font-family: 'Friedrichshain', 'Helvetica Neue', Arial, sans-serif; /* Change to a more beautiful font */
+  }
+  
+  /* Add some styles for the entered information */
+  #info-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .info-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .info-value {
+    margin-bottom: 15px;
+  }
+  
+.input-wrapper {
+    margin-bottom: 15px;
+  }
+
+
+  /* Dark mode specific styles */
+  
+  body.dark-mode {
+    background-color: #111;
+  }
+  
+  body.dark-mode .container {
+    background-color: #222;
+  }
+  
+  body.dark-mode input[type='text'],
+  body.dark-mode input[type='number'],
+  body.dark-mode select {
+    background-color: #111;
+  }
+  
+  body.dark-mode button {
+    background-color: #1e7f35;
+  }
+  
+  body.dark-mode .result {
+    background-color: #111;
+  }
+  
