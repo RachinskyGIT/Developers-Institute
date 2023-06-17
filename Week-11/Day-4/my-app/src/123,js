@@ -1,8 +1,5 @@
 //Exercise 4
-const url = 'https://webhook.site/28d6acd1-b9c6-454c-b8bb-8cb379a1e35d'
-
-//I dont understand why the body remains empty. Looks like I have to install some extra modules, but not sure
-// Postman says my url is fine and Webhook sees my fetch requests made in this code so theoretically it should be ok
+const url = 'https://webhook.site/647abb1b-9ef0-4b1e-96a5-546a3e0046ad';
 
 let requestBody = {
   key1: 'myusername',
