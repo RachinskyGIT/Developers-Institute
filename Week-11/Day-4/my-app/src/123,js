@@ -1,0 +1,48 @@
+//Exercise 4
+const url = 'https://webhook.site/28d6acd1-b9c6-454c-b8bb-8cb379a1e35d'
+
+//I dont understand why the body remains empty. Looks like I have to install some extra modules, but not sure
+// Postman says my url is fine and Webhook sees my fetch requests made in this code so theoretically it should be ok
+
+let requestBody = {
+  key1: 'myusername',
+  email: 'mymail@gmail.com',
+  name: 'Isaac',
+  lastname: 'Doe',
+  age: 27
+}
+
+let response
+async function fetcher(){
+  try {
+    response = await fetch(url, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Accept': 'application/json',
+      'Content-type': 'application/json' 
+    },
+    body: JSON.stringify(requestBody)
+  })
+  const data = await response.json();
+  console.log(data) 
+  }
+  catch(error){
+    console.log(error)
+  }
+}
+
+function showData(){
+  console.log(response)
+}
+
+
+function App() {
+  return (
+    <>
+    <button onClick={fetcher}>Show Data</button>
+    </> 
+  );
+}
+
+export default App;
