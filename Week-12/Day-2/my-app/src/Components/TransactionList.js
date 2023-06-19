@@ -7,8 +7,8 @@ const TransactionList = ({ transactions, updateIndex, deleteTransaction }) => {
     updateIndex(index);
   };
 
-  const handleDelete = (id) => {
-    deleteTransaction(id);
+  const handleDelete = (idx) => {
+    deleteTransaction(idx);
   };
 
   return (
@@ -17,6 +17,7 @@ const TransactionList = ({ transactions, updateIndex, deleteTransaction }) => {
       <table>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Account Number</th>
             <th>FSC</th>
             <th>Name</th>
@@ -27,13 +28,14 @@ const TransactionList = ({ transactions, updateIndex, deleteTransaction }) => {
         <tbody>
           {transactions.map((transaction, index) => (
             <tr key={index}>
+              <td>{transaction.id}</td>
               <td>{transaction.accountNumber}</td>
               <td>{transaction.FSC}</td>
               <td>{transaction.name}</td>
               <td>{transaction.amount}</td>
               <td>
                 <button onClick={() => handleEdit(index)}>Edit</button>
-                <button onClick={() => handleDelete(transaction.id)}>Delete</button>
+                <button onClick={() => handleDelete(transaction.idx)}>Delete</button>
               </td>
             </tr>
           ))}

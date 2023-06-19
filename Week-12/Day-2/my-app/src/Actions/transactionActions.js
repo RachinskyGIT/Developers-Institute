@@ -12,10 +12,10 @@ export const insertTransaction = (transaction) => {
     };
   };
   
-  export const deleteTransaction = (id) => {
+  export const deleteTransaction = (idx) => {
     return {
       type: 'DELETE',
-      payload: id,
+      payload: idx,
     };
   };
   

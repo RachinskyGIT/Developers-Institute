@@ -5,13 +5,17 @@ import { insertTransaction, updateTransaction } from '../Actions/transactionActi
 const TransactionForm = ({ currentIndex, currentTransaction, insertTransaction, updateTransaction }) => {
   const [formData, setFormData] = useState({
     accountNumber: '',
+    id: null,
     FSC: '',
     name: '',
     amount: '',
   });
 
+  const [lastId, setLastId] = useState(0);
+
+
   useEffect(() => {
-    if (currentTransaction && currentTransaction.id) {
+    if (currentTransaction && currentTransaction.idx) {
       const { accountNumber, FSC, name, amount } = currentTransaction;
       setFormData({ accountNumber, FSC, name, amount });
     }
@@ -26,19 +30,34 @@ const TransactionForm = ({ currentIndex, currentTransaction, insertTransaction, 
 
     if (currentIndex === -1) {
       // Insert transaction
-      insertTransaction(formData);
+      const newTransaction = { ...formData, id: lastId + 1 };
+      insertTransaction(newTransaction);
+      setLastId(lastId + 1);
     } else {
       // Update transaction
       updateTransaction(currentIndex, formData);
     }
 
     setFormData({
+      id: null,
       accountNumber: '',
       FSC: '',
       name: '',
       amount: '',
     });
   };
+
+  useEffect(() => {
+    // Clear form fields when currentIndex changes to -1
+    if (currentIndex === -1) {
+      setFormData({
+        accountNumber: '',
+        FSC: '',
+        name: '',
+        amount: '',
+      });
+    }
+  }, [currentIndex]);
 
   return (
     <div>
