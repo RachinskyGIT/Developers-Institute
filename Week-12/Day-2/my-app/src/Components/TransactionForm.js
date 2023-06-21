@@ -1,104 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { insertTransaction, updateTransaction } from '../Actions/transactionActions';
+import {useState, useEffect} from 'react'
+import { useSelector, useDispatch} from 'react-redux'
+import {insert_trx, update_trx} from  '../redux/actions'
 
-const TransactionForm = ({ currentIndex, currentTransaction, insertTransaction, updateTransaction }) => {
-  const [formData, setFormData] = useState({
-    accountNumber: '',
-    id: null,
-    FSC: '',
-    name: '',
-    amount: '',
-  });
+const TransactionForm = (props) => {
 
-  const [lastId, setLastId] = useState(0);
-
-
-  useEffect(() => {
-    if (currentTransaction && currentTransaction.idx) {
-      const { accountNumber, FSC, name, amount } = currentTransaction;
-      setFormData({ accountNumber, FSC, name, amount });
-    }
-  }, [currentTransaction]);
-
-  const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (currentIndex === -1) {
-      // Insert transaction
-      const newTransaction = { ...formData, id: lastId + 1 };
-      insertTransaction(newTransaction);
-      setLastId(lastId + 1);
-    } else {
-      // Update transaction
-      updateTransaction(currentIndex, formData);
-    }
-
-    setFormData({
-      id: null,
-      accountNumber: '',
-      FSC: '',
-      name: '',
-      amount: '',
-    });
-  };
-
-  useEffect(() => {
-    // Clear form fields when currentIndex changes to -1
-    if (currentIndex === -1) {
-      setFormData({
-        accountNumber: '',
+    //делает то же самое, что и функция handleInputChange (???)
+    const [transaction, setTransaction] = useState({
+        accountNumber: '',    //эта строка делает то же самое, что и эта строка: const [accountNumber, setAccountNumber] = useState('')
         FSC: '',
         name: '',
-        amount: '',
-      });
+        amount: ''
+    })
+
+    const currentIndex = useSelector(state => state.currentIndex)
+    const list = useSelector(state => state.list)
+
+    const dispatch = useDispatch();
+
+    const handleInputChange = (e) => {
+        setTransaction({...transaction, [e.target.name]:e.target.value})
     }
-  }, [currentIndex]);
 
-  return (
-    <div>
-      <h2>Transaction Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Account Number:
-          <input type="text" name="accountNumber" value={formData.accountNumber} onChange={handleInputChange} />
-        </label>
-        <br />
-        <label>
-          FSC:
-          <input type="text" name="FSC" value={formData.FSC} onChange={handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Name:
-          <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Amount:
-          <input type="text" name="amount" value={formData.amount} onChange={handleInputChange} />
-        </label>
-        <br />
-        <button type="submit">{currentIndex === -1 ? 'Add Transaction' : 'Update Transaction'}</button>
-      </form>
-    </div>
-  );
-};
+    useEffect(()=>{
+        if(currentIndex !=-1){
+            const trx = list[currentIndex];
+            setTransaction({
+                accountNumber:trx.accountNumber|| '', 
+                FSC:trx.FSC|| '',
+                name:trx.name|| '',
+                amount:trx.amount|| ''
+            })
+        }
+    },[currentIndex])
 
-const mapStateToProps = (state) => {
-  return {
-    currentIndex: state.currentIndex,
-    currentTransaction: state.list[state.currentIndex],
-  };
-};
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (
+                transaction.accountNumber.trim() === '' ||
+                transaction.FSC.trim() === '' ||
+                transaction.name.trim() === '' ||
+                transaction.amount.trim() === ''
+          ) {
+                // Один или несколько полей пустые, ничего не делаем
+                return;
+            }
 
-const mapDispatchToProps = {
-  insertTransaction,
-  updateTransaction,
-};
+        if(currentIndex === -1) {
+            dispatch(insert_trx(transaction))
+        }
+        else{
+            dispatch(update_trx(transaction))
+        }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionForm);
+        setTransaction({
+            accountNumber: '', 
+            FSC: '',
+            name: '',
+            amount: ''
+        })
+    }
+
+    
+    return(
+        <>
+        <h2>Transaction Form</h2>
+        <form onSubmit={handleSubmit}>
+            <input name='accountNumber' 
+                placeholder='Accoint Number'
+                onChange={handleInputChange}
+                value={transaction.accountNumber}
+                /><br/>
+            <input name='FSC' 
+                placeholder='FSC'
+                onChange={handleInputChange}
+                value={transaction.FSC}
+                /><br/>
+            <input name='name' 
+                placeholder='Name'
+                onChange={handleInputChange}
+                value={transaction.name}
+                /><br/>
+            <input name='amount' 
+                placeholder='Amount'
+                onChange={handleInputChange}
+                value={transaction.amount}
+                /><br/>
+            <input type='submit'
+                   value={currentIndex === -1 ? 'Submit' : 'Update'} />
+        </form>
+        </>
+    )
+
+}
+
+export default TransactionForm

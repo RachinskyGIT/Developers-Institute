@@ -1,31 +1,35 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-import './index.css';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
-
-// reportWebVitals();
-
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 import App from './App';
-import transactionReducer from './Reducers/transactionReducer';
+import store from './redux/store'
+import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
 
-const store = createStore(transactionReducer);
-
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
+
+reportWebVitals();
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import { createStore } from 'redux';
+// import { Provider } from 'react-redux';
+// import App from './App';
+// import transactionReducer from './Reducers/transactionReducer';
+
+// const store = createStore(transactionReducer);
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>,
+//   document.getElementById('root')
+// );
 
